@@ -1,14 +1,18 @@
 import React from 'react'
 import { Category } from '../Category/Category'
 import { List, Item } from './style'
+// Importing fake data
+import data from '../../../api/db.json'
 
 function CategoryList () {
+    
   return (
     <List>
       {
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(category =>
-                  <Item key={category}>
-                    <Category />
+        
+                data.categories.map(category =>
+                  <Item key={category.id}>
+                    <Category {...category} />
                   </Item>
                 )
             }
