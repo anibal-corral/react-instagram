@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { fadein } from '../../styles/animation'
+
 const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -10,6 +12,7 @@ const ImgWrapper = styled.div`
 `
 
 const Img = styled.img`
+  ${fadein({ time: '2s' })}
   box-shadow: 0 10px 14px rgba(0, 0, 0, .2);
   height: 100%;
   object-fit: cover;
