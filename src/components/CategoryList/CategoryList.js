@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Category } from '../Category/Category'
 import { List, Item } from './style'
-// Importing fake data
-import data from '../../../api/db.json'
 
 function CategoryList () {
-    
+  const [categories, setCategories] = useState([])
+  useEffect(function () {
+    fetch('https://petgram-server-aecs-anibal-corral.vercel.app/categories')
+      .then(res => res.json())
+      .then(response => setCategories(response))
+  }, [])
   return (
     <List>
       {
-        
-                data.categories.map(category =>
+
+                categories.map(category =>
                   <Item key={category.id}>
                     <Category {...category} />
                   </Item>
