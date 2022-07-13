@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Category } from '../Category/Category'
-import { CategoryListLoading } from '../CategoryListLoading/CategoryListLoading'
 import { List, Item } from './style'
 
 // Custom Hook for getting data from API
@@ -22,9 +21,7 @@ function useCategorieData () {
 function CategoryList () {
   const { categories, loading } = useCategorieData()
   if (loading) {
-    return (
-      <CategoryListLoading />
-    )
+    return 'Loading Categories ...'
   }
   return (
     <List>
