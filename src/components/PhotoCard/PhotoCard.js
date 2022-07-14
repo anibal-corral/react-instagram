@@ -4,6 +4,19 @@ import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
   const [show, setShow] = useState(false)
+  const key = `like-${id}`
+  const [liked, setLiked] = useState(
+    () => {
+      try {
+        return window.localStorage.getItem(key)
+      } catch (error) {
+        console.log(error)
+        return false
+      }
+    }
+
+  )
+
   const ref = useRef(null)
   useEffect(() => {
     // console.log(ref.current)
@@ -18,6 +31,16 @@ function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
     })
     observer.observe(ref.current)
   }, [ref])
+
+  const Icon = liked ? FcLike : FcLikePlaceholder
+  const setLocalStorage = value => {
+    try {
+      window.localStorage.setItem(key, value)
+      setLiked(value)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <Article ref={ref}>
       {
@@ -28,10 +51,10 @@ function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
             </ImgWrapper>
 
           </a>
-          <Button>
-            <FcLikePlaceholder size='32px' />{likes} likes!
+          <Button onClick={() => setLocalStorage(!liked)}>
+            <Icon size='32px' />{likes} likes!
           </Button>
-        </>
+                </>
       }
 
     </Article>
