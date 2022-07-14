@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { fadein } from '../../styles/animation'
 
+const Article = styled.article`
+min-height: 200px
+`
+
 const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -30,4 +34,4 @@ const Button = styled.button`
   }
 `
 
-export { ImgWrapper, Img, Button }
+export { ImgWrapper, Img, Button, Article }
