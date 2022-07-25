@@ -39,7 +39,7 @@ function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
             }
           </ToggleLikeMutation>
 
-                </>
+        </>
       }
 
     </Article>

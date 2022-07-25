@@ -13,7 +13,7 @@ function useCategorieData () {
       .then(response => setCategories(response))
     setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 1000)
   }, [])
   return { categories, loading }
 }
@@ -29,7 +29,7 @@ function CategoryList () {
 
                 categories.map(category =>
                   <Item key={category.id}>
-                    <Category {...category} />
+                    <Category {...category} path={`/pet/${category.id}`} />
                   </Item>
                 )
             }

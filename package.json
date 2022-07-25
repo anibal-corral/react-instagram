@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d build",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --history-api-fallback",
     "lint": "standard --fix"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
+    "@reach/router": "^1.3.4",
     "apollo-boost": "^0.4.9",
     "graphql": "^16.5.0",
     "react": "^18.2.0",
