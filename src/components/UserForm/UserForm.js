@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
+import React, { Fragment } from 'react'
 import { useInputValue } from '../../Hooks/useInputValue'
+import { GermanShepered } from '../GermanShepered/GermanShepered'
+import { Button, Form, Input, Title } from './styles'
 
-
-export const UserForm = ({ onSubmit }) => {
+export const UserForm = ({ onSubmit, title }) => {
   const email = useInputValue('')
   const password = useInputValue('')
   return (
-    <form onSubmit={onSubmit}>
+    <>
+      <GermanShepered />
+      <Title>{title}</Title>
+      <Form onSubmit={onSubmit}>
         {/* {... email} es para evitar poner value = {email.value} onchange = {email.onchange} */}
-      <input placeholder='Email' {...email} /> 
-      <input type='password' placeholder='Password' value={password.value} onChange={password.onChange} />
-      <button> Login </button>
-    </form>
-
+        <Input placeholder='Email' {...email} />
+        <Input type='password' placeholder='Password' value={password.value} onChange={password.onChange} />
+        <Button> {title} </Button>
+      </Form>
+    </>
   )
 }
