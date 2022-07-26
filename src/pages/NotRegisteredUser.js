@@ -1,22 +1,23 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { UserForm } from '../components/UserForm/UserForm'
-import Context from '../Context'
+import { Context } from '../Context'
 import { RegisterMutation } from '../containers/RegisterMutation'
 import { LoginMutation } from '../containers/LoginMutation'
 export const NotRegisteredUser = () => {
+  const { activateAuth } = useContext(Context)
   return (
-    <Context.Consumer>
-      {
-            ({ activateAuth }) => {
-              return (
-                <>
-                  <RegisterMutation>
-                    {
+
+    <>
+      <RegisterMutation>
+        {
                     (register, { data, loading, error }) => {
                       const onSubmit = ({ email, password }) => {
                         const input = { email, password }
                         const variables = { input }
-                        register({ variables }).then(activateAuth)
+                        register({ variables }).then(({ data }) => {
+                          const { signup } = data
+                          activateAuth(signup)
+                        })
                       }
                       const errorMsg = error && 'User already exists'
 
@@ -26,14 +27,17 @@ export const NotRegisteredUser = () => {
                       )
                     }
                   }
-                  </RegisterMutation>
-                  <LoginMutation>
-                    {
+      </RegisterMutation>
+      <LoginMutation>
+        {
                      (login, { data, loading, error }) => {
                        const onSubmit = ({ email, password }) => {
                          const input = { email, password }
                          const variables = { input }
-                         login({ variables }).then(activateAuth)
+                         login({ variables }).then(({ data }) => {
+                           const { login } = data
+                           activateAuth(login)
+                         })
                        }
                        const errorMsg = error && 'Credentials error'
                        return (
@@ -41,12 +45,8 @@ export const NotRegisteredUser = () => {
                        )
                      }
                   }
-                  </LoginMutation>
+      </LoginMutation>
 
-                </>
-              )
-            }
-        }
-    </Context.Consumer>
+    </>
   )
 }
