@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost'
 
 
 const REGISTER = gql`
-mutation SingleFieldSubscriptionsRule($input:UserCredentials!) {
+mutation signUp($input:UserCredentials!) {
     signup (input: $input)
 }
 `
