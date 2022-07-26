@@ -1,15 +1,13 @@
 import React from 'react'
+import { UserForm } from '../components/UserForm/UserForm'
 import Context from '../Context'
 export const NotRegisteredUser = () => {
   return (
     <Context.Consumer>
       {
             ({ activateAuth }) => {
-              console.log(activateAuth)
               return (
-                <form onSubmit={activateAuth}>
-                  <button> Login </button>
-                </form>
+                <UserForm onSubmit={activateAuth} />
 
               )
             }
