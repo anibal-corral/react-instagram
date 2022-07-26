@@ -9,6 +9,10 @@ import { Detail } from '../../pages/Detail'
 import { User } from '../../pages/User'
 import { NotRegisteredUser } from '../../pages/NotRegisteredUser'
 
+const UserLogged = ({ children }) => {
+  return children({ isAuth: true })
+}
+
 function App () {
   return (
     <>
@@ -19,11 +23,26 @@ function App () {
         <Home path='/' />
         <Home path='/pet/:categoryId' />
         <Detail path='/detail/:detailId' />
-        <Favs path='/favs' />
-        <User path='/user' />
-        <NotRegisteredUser path='/not' />
-
+      
       </Router>
+      <UserLogged>
+        {
+          ({ isAuth }) => 
+            isAuth
+              ? <Router>
+                <Favs path='/favs' />
+                <User path='/user' />
+              </Router>
+              
+              : <Router>
+                <NotRegisteredUser path='/favs' />
+                <NotRegisteredUser path='/user' />
+              </Router>
+          
+
+        }
+
+      </UserLogged>
       <NavBar />
 
     </>

@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export const NotRegisteredUser = () => {
-    <h1>NotRegisteredUser</h1>
+  return (<h1>NotRegisteredUser</h1>)
 }
