@@ -8,10 +8,8 @@ import { Favs } from '../../pages/Favs'
 import { Detail } from '../../pages/Detail'
 import { User } from '../../pages/User'
 import { NotRegisteredUser } from '../../pages/NotRegisteredUser'
+import Context from '../../Context'
 
-const UserLogged = ({ children }) => {
-  return children({ isAuth: true })
-}
 
 function App () {
   return (
@@ -25,7 +23,7 @@ function App () {
         <Detail path='/detail/:detailId' />
       
       </Router>
-      <UserLogged>
+      <Context.Consumer>
         {
           ({ isAuth }) => 
             isAuth
@@ -42,7 +40,7 @@ function App () {
 
         }
 
-      </UserLogged>
+      </Context.Consumer>
       <NavBar />
 
     </>
