@@ -1,9 +1,15 @@
 import React from 'react'
+import { Layout } from '../components/Layout/Layout'
 import { PhotoCardWithQuery } from '../containers/PhotoCardWithQuery'
 
 export const Detail = ({ detailId }) => {
-  console.log('Detail id ', detailId)
+  
   return (
-    <PhotoCardWithQuery id={detailId} />
+    // <Layout title={`Photo ${detailId}`}>
+    <>
+<PhotoCardWithQuery id={detailId} />
+</>
+    // </Layout>
+    
   )
 }
