@@ -9,7 +9,8 @@ const client = new ApolloClient({
   uri: 'https://petgram-server-aecs-anibal-corral.vercel.app/graphql',
   request: operation => {
     const token = window.sessionStorage.getItem('token')
-    const authorization = token ? `Bearer ${token}` : ''
+    console.log('token => ', token)
+    const authorization = token ? `bearer ${token}` : ''
     operation.setContext({
       headers: {
         authorization
