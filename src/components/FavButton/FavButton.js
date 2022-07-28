@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 import { Button } from './styles'
 function FavButton ({ liked, likes, onClick }) {
@@ -12,4 +13,11 @@ function FavButton ({ liked, likes, onClick }) {
   )
 }
 
+FavButton.prototype = {
+  liked: PropTypes.bool.isRequired,
+  likes: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
+}
+
 export { FavButton }
+
