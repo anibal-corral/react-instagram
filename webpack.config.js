@@ -1,6 +1,7 @@
 const { pathToArray } = require('graphql/jsutils/Path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackPwaManifestPlugin = require('webpack-pwa-manifest')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const path = require('path')
 module.exports = {
   mode: 'development',
@@ -25,6 +26,24 @@ module.exports = {
         }
       ]
 
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: /https:\/\/(res.cloudinary.com|images.unsplash.com)/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: /https:\/\/petgram-server-aecs-anibal-corral.vercel.app/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ]
     })
   ],
 
