@@ -1,6 +1,6 @@
 import { graphql } from 'react-apollo'
 import { gql } from 'apollo-boost'
-const photos = graphql(gql`
+const GET_PHOTOS = gql`
 query getPhotos ($categoryId: ID){
 
   photos(categoryId: $categoryId) {
@@ -13,5 +13,6 @@ query getPhotos ($categoryId: ID){
   }
   
 }
-`)
+`
+const photos = graphql(GET_PHOTOS)
 export { photos }

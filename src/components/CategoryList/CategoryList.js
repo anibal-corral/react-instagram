@@ -13,12 +13,12 @@ function useCategorieData () {
       .then(response => setCategories(response))
     setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 1000)
   }, [])
   return { categories, loading }
 }
 
-function CategoryList () {
+const CategoryListComponent = () => {
   const { categories, loading } = useCategorieData()
   if (loading) {
     return 'Loading Categories ...'
@@ -29,7 +29,7 @@ function CategoryList () {
 
                 categories.map(category =>
                   <Item key={category.id}>
-                    <Category {...category} />
+                    <Category {...category} path={`/pet/${category.id}`} />
                   </Item>
                 )
             }
@@ -37,4 +37,24 @@ function CategoryList () {
   )
 }
 
-export { CategoryList }
+function CategoryList1 () {
+  const { categories, loading } = useCategorieData()
+  if (loading) {
+    return 'Loading Categories ...'
+  }
+  return (
+    <List>
+      {
+
+                categories.map(category =>
+                  <Item key={category.id}>
+                    <Category {...category} path={`/pet/${category.id}`} />
+                  </Item>
+                )
+            }
+    </List>
+  )
+}
+
+// export { CategoryList }
+export const CategoryList = React.memo(CategoryListComponent)
