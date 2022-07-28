@@ -1,0 +1,42 @@
+{
+  "icons": [
+    {
+      "src": "/icon_512x512.61515a8338df72002548d066f8675c80.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.10bd251544c508828b9286b57400a026.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.bf2dc33b15b45d7f87d8e6847f172590.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.14246a28cd31ba77f809923e240bfe53.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.c54be588a422b537da7427279a493edc.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.e9621f6091a471d4d2f93eeaadc0ef79.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Petsgram - Your pet pictures app",
+  "short_name": "Petsgram",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "You can find photos of pets.",
+  "background_color": "#fff",
+  "theme_color": "#4CBCD2"
+}
