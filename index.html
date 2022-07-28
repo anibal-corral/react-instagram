@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="/react-instagram/app.bundle.js"></script><meta name="theme-color" content="#4CBCD2" /><link rel="manifest" href="/react-instagram/manifest.eb0ee59f53d7b7ca1d1616c426081fef.json" /></head>
+<body>
+    <div id="root"></div>
+    <noscript>
+        <h3>This app needs Javascript</h3>
+    </noscript>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('SW registered')
+          })
+          .catch(registrationError => {
+            console.log('SW error', registrationError)
+          })
+      })
+    }
+  </script>
+</body>
+</html>
